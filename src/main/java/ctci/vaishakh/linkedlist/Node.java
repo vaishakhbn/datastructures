@@ -135,5 +135,30 @@ public class Node
 		return result;
 	}
 	
+	
+	Node alternateAdd(Node l1, Node l2)
+	{
+		
+		Node l1Head = l1;
+		Node l2Head = l2;
+		Node l1Next = null;
+		Node l2next = null;
+		Node last = l1Head;
+		while(l1Head!=null && l2Head!=null)
+		{
+			l1Next = l1.next;
+			l2next = l2.next;
+			l1Head.next = l2Head;
+			l1Head = l1Head.next;
+			l2Head = l2next;
+			last = l1Head;
+		}
+		if(l1Head ==null && l2Head!=null)
+		{
+			last.next = l2Head;
+		}
+		return l1Head;
+		
+	}
 
 }
